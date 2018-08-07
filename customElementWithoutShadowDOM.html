@@ -1,0 +1,25 @@
+<template id="template">
+    <style>
+        h3 {
+            color: purple;
+        }
+    </style>
+    
+    <h3>I am a native component</h3>
+</template>
+
+<script>
+    const doc = (document._currentScript || document.currentScript).ownerDocument;
+    const template = doc.querySelector('#template');
+
+    class NativeComponent extends HTMLElement {
+        constructor() {
+            super();
+
+            this.appendChild(template.content);
+        }
+    }
+
+    customElements.define('my-component', NativeComponent);
+
+</script>
